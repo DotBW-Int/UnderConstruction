@@ -1,0 +1,279 @@
+:root {
+    --primary-color: #3b82f6;
+    --accent-color: #1e40af;
+    --background: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    background: white;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+}
+
+nav .brand {
+    margin-left: 4rem;
+}
+
+.brand {
+    font-size: 1.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.brand-c {
+    color: #3b82f6;
+}
+
+.brand-t {
+    color: var(--text-primary);
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.construction-section {
+    padding: 4rem 2rem 2rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.construction-message {
+    background: white;
+    padding: 3rem;
+    border-radius: 24px;
+    box-shadow: var(--card-shadow);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.construction-message h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.construction-message p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.apps-section {
+    padding: 2rem 2rem 4rem;
+    text-align: center;
+}
+
+.apps-section h2 {
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+}
+
+.app-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.app-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    max-width: 400px;
+}
+
+.app-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.15);
+}
+
+.app-icon {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 1.5rem;
+}
+
+.app-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+}
+
+.app-info h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.app-info p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.footer {
+    background: #f8fafc;
+    padding: 4rem 2rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 3rem;
+}
+
+.footer-brand {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+.email-container {
+    text-align: center;
+}
+
+.email-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.2s ease;
+}
+
+.email-link:hover {
+    color: var(--accent-color);
+}
+
+.email-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.copyright {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 1.25rem;
+    }
+
+    nav .brand {
+        margin-left: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .construction-section {
+        padding: 3rem 1rem 1.5rem;
+    }
+
+    .construction-message {
+        padding: 2rem;
+    }
+
+    .construction-message h1 {
+        font-size: 2rem;
+    }
+
+    .apps-section {
+        padding: 1.5rem 1rem 3rem;
+    }
+
+    .apps-section h2 {
+        font-size: 1.75rem;
+    }
+
+    .app-card {
+        padding: 1.5rem;
+    }
+
+    .app-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .app-info h3 {
+        font-size: 1.25rem;
+    }
+
+    .app-info p {
+        font-size: 1rem;
+    }
+
+    .footer {
+        padding: 3rem 1rem;
+    }
+
+    .footer-links {
+        gap: 2rem;
+        flex-direction: column;
+        align-items: center;
+    }
+}

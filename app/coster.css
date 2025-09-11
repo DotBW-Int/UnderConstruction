@@ -1,0 +1,193 @@
+.app-header {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+    margin-bottom: 3rem;
+    position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.features-section .review-notice {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+    max-width: fit-content;
+    margin: 0 auto 2.5rem;
+}
+
+.features-section .review-notice .info-icon {
+    flex-shrink: 0;
+}
+
+.app-header-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.app-header img {
+    width: 96px;
+    height: 96px;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--card-shadow);
+    background: white;
+    padding: 8px;
+}
+
+.app-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.app-header p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.features-section,
+.privacy-section {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    padding: 0 2rem;
+}
+
+.feature-card,
+.privacy-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--card-shadow);
+}
+
+.feature-card h3,
+.privacy-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.feature-card p,
+.privacy-card p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.privacy-card ul {
+    list-style-type: none;
+    margin: 1rem 0;
+}
+
+.privacy-card li {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.privacy-card li::before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+.privacy-card ul {
+    list-style-type: none;
+    margin: 1rem 0;
+}
+
+.privacy-card li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-secondary);
+}
+
+.privacy-card li::before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+@media (max-width: 768px) {
+    .app-header {
+        padding: 3rem 1.5rem;
+    }
+
+    .features-section .review-notice {
+        padding: 0.75rem 1rem;
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+    }
+
+    .app-header h1 {
+        font-size: 2rem;
+    }
+
+    .app-header p {
+        font-size: 1.1rem;
+    }
+
+    .features-section,
+    .privacy-section {
+        padding: 0 1.5rem;
+    }
+
+    .feature-card,
+    .privacy-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .app-header {
+        padding: 2rem 1rem;
+    }
+
+    .app-header img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .features-section,
+    .privacy-section {
+        padding: 0 1rem;
+    }
+
+    .feature-card,
+    .privacy-card {
+        padding: 1.5rem;
+    }
+
+    .feature-card h3,
+    .privacy-card h3 {
+        font-size: 1.25rem;
+    }
+
+    .feature-card p,
+    .privacy-card p {
+        font-size: 1rem;
+    }
+
+    .privacy-card li {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+    }
+}
