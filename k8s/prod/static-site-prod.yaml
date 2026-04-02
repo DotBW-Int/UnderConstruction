@@ -1,34 +1,41 @@
-name: Deploy Static Site to K3s
-
-on:
-  push:
-    branches:
-      - deploy_to_prod
-
-jobs:
-  deploy:
-    runs-on: self-hosted
-    env:
-      KUBECONFIG: /home/githubrunner/.kube/config
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Build Docker image >> 
-        run: docker build -t static-site:latest .
-
-      - name: Save image as tar
-        run: docker save static-site:latest -o /tmp/static-site.tar
-
-      - name: Import image into K3s containerd
-        run: sudo k3s ctr images import /tmp/static-site.tar
-
-      - name: Apply Kubernetes manifest
-        run: kubectl apply -f k8s/prod/static-site-prod.yaml
-
-      - name: Restart deployment
-        run: kubectl rollout restart deployment/static-site -n prod
-
-      - name: Wait for rollout
-        run: kubectl rollout status deployment/static-site -n prod --timeout=180s
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: static-site
+  namespace: prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: static-site
+  template:
+    metadata:
+      labels:
+        app: static-site
+    spec:
+      containers:
+        - name: static-site
+          image: static-site:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "100m"
+            limits:
+              memory: "128Mi"
+              cpu: "250m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: static-site
+  namespace: prod
+spec:
+  selector:
+    app: static-site
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP
