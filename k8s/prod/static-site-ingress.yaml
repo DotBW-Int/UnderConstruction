@@ -5,8 +5,7 @@ metadata:
   namespace: prod
 spec:
   rules:
-    - host: static.local
-      http:
+    - http:
         paths:
           - path: /
             pathType: Prefix
