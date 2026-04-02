@@ -39,3 +39,6 @@ jobs:
 
       - name: Apply Ingress manifest
         run: kubectl apply -f k8s/prod/static-site-ingress.yaml
+
+      - name: Apply encryption cert issuer
+        run: kubectl apply -f k8s/infra/letsencrypt-prod-clusterissuer.yaml
