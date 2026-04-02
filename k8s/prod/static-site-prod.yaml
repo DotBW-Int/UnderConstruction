@@ -8,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: self-hosted
+    env:
+      KUBECONFIG: /home/githubrunner/.kube/config
 
     steps:
       - name: Checkout code
@@ -23,16 +25,10 @@ jobs:
         run: sudo k3s ctr images import /tmp/static-site.tar
 
       - name: Apply Kubernetes manifest
-        env:
-          KUBECONFIG: /home/githubrunner/.kube/config
         run: kubectl apply -f k8s/prod/static-site-prod.yaml
 
       - name: Restart deployment
-        env:
-          KUBECONFIG: /home/githubrunner/.kube/config
         run: kubectl rollout restart deployment/static-site -n prod
 
       - name: Wait for rollout
-        env:
-          KUBECONFIG: /home/githubrunner/.kube/config
         run: kubectl rollout status deployment/static-site -n prod --timeout=180s
