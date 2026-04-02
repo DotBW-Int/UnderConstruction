@@ -33,3 +33,9 @@ jobs:
 
       - name: Wait for rollout
         run: kubectl rollout status deployment/static-site -n prod --timeout=180s
+      
+      - name: Apply Service/Deployment manifest
+        run: kubectl apply -f k8s/prod/static-site-prod.yaml
+
+      - name: Apply Ingress manifest
+        run: kubectl apply -f k8s/prod/static-site-ingress.yaml
