@@ -3,9 +3,17 @@ kind: Ingress
 metadata:
   name: static-site-ingress
   namespace: prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
+  ingressClassName: traefik
+  tls:
+    - hosts:
+        - yourdomain.com
+      secretName: yourdomain-com-tls
   rules:
-    - http:
+    - host: yourdomain.com
+      http:
         paths:
           - path: /
             pathType: Prefix
