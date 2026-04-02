@@ -9,10 +9,10 @@ spec:
   ingressClassName: traefik
   tls:
     - hosts:
-        - yourdomain.com
-      secretName: yourdomain-com-tls
+        - ctriangle.com
+      secretName: ctriangle-com-tls
   rules:
-    - host: yourdomain.com
+    - host: ctriangle.com
       http:
         paths:
           - path: /
